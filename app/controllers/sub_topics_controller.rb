@@ -3,9 +3,9 @@ class SubTopicsController < ApplicationController
 
   # GET /sub_topics
   def index
-    @sub_topics = SubTopic.all
+    sub_topics = SubTopic.all
 
-    render json: @sub_topics
+    render json: sub_topics
   end
 
   # GET /sub_topics/1
@@ -15,12 +15,12 @@ class SubTopicsController < ApplicationController
 
   # POST /sub_topics
   def create
-    @sub_topic = SubTopic.new(sub_topic_params)
+    sub_topic = SubTopic.new(sub_topic_params)
 
-    if @sub_topic.save
-      render json: @sub_topic, status: :created, location: @sub_topic
+    if sub_topic.save
+      render json: sub_topic, status: :created, location: sub_topic
     else
-      render json: @sub_topic.errors, status: :unprocessable_entity
+      render json: sub_topic.errors, status: :unprocessable_entity
     end
   end
 

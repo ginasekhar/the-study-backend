@@ -3,9 +3,9 @@ class FlashCardsController < ApplicationController
 
   # GET /flash_cards
   def index
-    @flash_cards = FlashCard.all
+    flash_cards = FlashCard.all
 
-    render json: @flash_cards
+    render json: flash_cards
   end
 
   # GET /flash_cards/1
@@ -15,12 +15,12 @@ class FlashCardsController < ApplicationController
 
   # POST /flash_cards
   def create
-    @flash_card = FlashCard.new(flash_card_params)
+    flash_card = FlashCard.new(flash_card_params)
 
-    if @flash_card.save
-      render json: @flash_card, status: :created, location: @flash_card
+    if flash_card.save
+      render json: flash_card, status: :created, location: flash_card
     else
-      render json: @flash_card.errors, status: :unprocessable_entity
+      render json: flash_card.errors, status: :unprocessable_entity
     end
   end
 
